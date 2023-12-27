@@ -7,6 +7,9 @@ import (
 	"github.com/CloudyKit/jet/v6"
 )
 
+// HealthHandler always returns 200 OK response for health check
+func (a *Application) HealthHandler(w http.ResponseWriter, r *http.Request) {}
+
 // IndexHandler is the handler to display the webpage
 func (a *Application) IndexHandler(w http.ResponseWriter, r *http.Request) {
 	name := getCapitalizedName(r.URL.Query().Get("n"))
