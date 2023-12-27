@@ -5,7 +5,7 @@ import "wishes/base"
 const (
 	appName = "wishes"
 	host    = "localhost"
-	port    = "8080"
+	port    = "10000"
 )
 
 func main() {
