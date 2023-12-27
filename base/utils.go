@@ -17,7 +17,7 @@ func initJet() *jet.Set {
 }
 
 func (a *Application) generateURL(name string) string {
-	return fmt.Sprintf("%s?n=%s", "https://wishes-from-sonika.onrender.com", name)
+	return fmt.Sprintf("%s?n=%s", a.server.renderHost, name)
 }
 
 func getCapitalizedName(name string) string {
