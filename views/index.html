@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <title>Interactive Web Page</title>
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #040204;
+            font-family: "Sofia", sans-serif;
+        }
+
+        #movingName {
+            position: absolute;
+            top: 14%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            color: #ffffff;
+            animation: zoomAndShake 3s infinite;
+        }
+
+        @keyframes zoomAndShake {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            30%,
+            70% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+
+            40%,
+            60% {
+                transform: translate(-50%, -50%) scale(1.2) rotate(-5deg);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.5) rotate(5deg);
+                text-shadow: 0 0 10px rgb(255 0 125 / 80%), 0 0 20px rgb(255 0 148 / 80%), 0 0 30px rgb(255 63 187 / 80%);
+            }
+        }
+
+        #movingText {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #ffffff;
+            animation: zoomAndShakeText 3s infinite;
+            z-index: 1;
+        }
+
+        @keyframes zoomAndShakeText {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            30%,
+            70% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+
+            40%,
+            60% {
+                transform: translate(-50%, -50%) scale(1.2) rotate(-5deg);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2) rotate(5deg);
+                text-shadow: 0 0 10px rgb(255 198 0 / 80%), 0 0 20px rgb(255 142 0 / 80%), 0 0 30px rgb(252 253 0 / 80%);
+            }
+        }
+
+        #wishText {
+            position: absolute;
+            top: 61%;
+            width: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #ffffff;
+            animation: glow 3s infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%)
+            }
+
+            30%,
+            70% {
+                transform: translate(-50%, -50%)
+            }
+
+            40%,
+            60% {
+                transform: translate(-50%, -50%)
+            }
+
+            50% {
+                transform: translate(-50%, -50%);
+                text-shadow: 0 0 10px rgb(255 0 154), 0 0 20px rgb(184 83 250), 0 0 30px rgb(253 179 0);
+            }
+        }
+
+        .gif-container {
+            width: 100%;
+            text-align: center;
+            top: 22%;
+            position: fixed;
+        }
+
+        .gif-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .gif-container-footer {
+            width: 100%;
+            text-align: center;
+            top: 45%;
+            position: fixed;
+            z-index: 5;
+        }
+
+        .gif-image-footer {
+            width: 100%;
+            height: 10%;
+        }
+
+        .gif-container-footer1 {
+            position: fixed;
+            width: 40%;
+            top: 61%;
+            left: 30%;
+            z-index: 5;
+            text-align: center;
+            align-items: center;
+        }
+
+        .gif-image-footer1 {
+            width: 100%;
+            height: 10%;
+        }
+
+        /* Form and Copy to Clipboard in the footer */
+        .footer-content {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            text-align: center;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-form {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .footer-form input {
+            width: 85%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .footer-form button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #c0243f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        .footer-copy-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #c0243f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        /* Mobile layout styles */
+        @media only screen and (max-width: 600px) {
+            #linkToCopy {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Play an audio file -->
+    <audio autoplay>
+        <source src="your-audio-file.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Displaying a moving/bouncing name -->
+    <div id="movingName">{{name}}</div>
+
+    <div id="movingText">Wishes you</div>
+
+    <!-- Div with class for the GIF image -->
+    <div class="gif-container">
+        <img src="/public/assets/new_year.gif" alt="GIF" class="gif-image">
+    </div>
+    <div class="gif-container-footer">
+        <img src="/public/assets/sparkle.gif" alt="GIF" class="gif-image-footer">
+    </div>
+
+    <div id="wishText">
+        <center>
+            <p style="font-size: 18px;">
+                I hope this year brings you closer to
+                <br>your dreams and fills your life with
+                <br>love and laughter!
+            </p>
+        </center>
+    </div>
+
+    <center>
+        <div class="gif-container-footer1">
+            <img src="/public/assets/cheers.gif" alt="GIF" class="gif-image-footer1">
+        </div>
+    </center>
+
+    <!-- Form and Copy to Clipboard in the footer -->
+    <div class="footer-content">
+        <form method="post" action="/" autocomplete="off" novalidate class="footer-form">
+            <input type="hidden" name="prevName" value="{{name}}" />
+            <input type="text" name="name" placeholder="Enter your name here" />
+            <center>
+                <button>Generate</button>
+                <button onclick="copyToClipboard('linkToCopy')">Copy link</button>
+            </center>
+        </form>
+        <!-- Div with text to be copied -->
+        <div id="linkToCopy" style="display: none;">{{nextLink}}</div>
+    </div>
+
+    <!-- JavaScript to handle clipboard copy -->
+    <script>
+        function copyToClipboard(elementId) {
+            // Get the content of the specified div
+            var linkToCopy = document.getElementById(elementId).innerText;
+
+            // Create a temporary textarea element
+            var textarea = document.createElement("textarea");
+            // Set the text content to the content of the div
+            textarea.value = linkToCopy;
+            // Append the textarea to the document
+            document.body.appendChild(textarea);
+            // Select the text in the textarea
+            textarea.select();
+            // Copy the selected text to the clipboard
+            document.execCommand('copy');
+            // Remove the textarea from the document
+            document.body.removeChild(textarea);
+            // You can provide user feedback here, e.g., display an alert
+            alert("Text copied to clipboard: " + linkToCopy);
+        }
+    </script>
+
+</body>
+
+</html>
