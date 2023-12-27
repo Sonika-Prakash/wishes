@@ -4,7 +4,7 @@ import "wishes/base"
 
 const (
 	appName = "wishes"
-	host    = "localhost"
+	host    = "0.0.0.0"
 	port    = "10000"
 )
 
