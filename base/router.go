@@ -54,6 +54,7 @@ func GetRouter(app *Application) http.Handler {
 		router.Use(loggingMiddleware)
 	}
 
+	router.HandleFunc("/health", app.HealthHandler).Methods(http.MethodGet)
 	router.HandleFunc("/", app.IndexHandler).Methods(http.MethodGet)
 	router.HandleFunc("/", app.IndexPostHandler).Methods(http.MethodPost)
 
