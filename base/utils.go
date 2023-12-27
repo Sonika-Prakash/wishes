@@ -2,6 +2,7 @@ package base
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/CloudyKit/jet/v6"
 	"golang.org/x/text/cases"
