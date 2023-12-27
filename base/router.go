@@ -19,6 +19,7 @@ import (
 type Server struct {
 	host string
 	port string
+	renderHost string
 }
 
 // Application is the application struct
