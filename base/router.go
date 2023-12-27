@@ -32,13 +32,14 @@ type Application struct {
 }
 
 // GetApplicationInstance returns the pointer to Application instance
-func GetApplicationInstance(appName, host, port string) *Application {
+func GetApplicationInstance(appName, host, port, renderHost string) *Application {
 	jet := initJet()
 	return &Application{
 		appName: appName,
 		server: Server{
 			host: host,
 			port: port,
+			renderHost: renderHost,
 		},
 		debug:   true,
 		infoLog: *log.New(os.Stdout, "INFO\t", log.Ltime|log.Ldate|log.Lshortfile),
