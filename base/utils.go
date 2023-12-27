@@ -17,6 +17,10 @@ func initJet() *jet.Set {
 }
 
 func (a *Application) generateURL(name string) string {
+	if strings.Contains(name, " ") {
+		splitName := strings.Split(name, " ")
+		name = strings.Join(splitName, "%20")
+	}
 	return fmt.Sprintf("%s?n=%s", a.server.renderHost, name)
 }
 
