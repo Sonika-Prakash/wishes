@@ -51,7 +51,7 @@ func (a *Application) IndexPostHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	name := getCapitalizedName(f.Get("name"))
-	nextLink := a.generateURL(name)
+	nextLink := a.generateCopyMsg(a.generateURL(name))
 
 	vars := make(jet.VarMap)
 	vars.Set("nextLink", nextLink)
