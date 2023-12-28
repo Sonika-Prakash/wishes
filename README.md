@@ -9,5 +9,5 @@ This is specifically for new year wishes. But you can be creative and you can us
 - Run "go run cmd/wishes/main.go".
 - A HTTP server will be started at 0.0.0.0:10000 by default. You can change these values if you want in main.go.
 - Open the webpage in any browser with the query parameter n=\<name\>. So the link will be something like this: 0.0.0.0:10000?n=sonika. You will see the name "sonika" in the wishes.
-- In the input box below, type your name and click on Generate. A new template with your name will be generated.
+- In the input box below, type your name and click on Generate. A new template with your name will be generated which you can preview immediately.
 - Now click on Copy link to copy this link to your clipboard. Now you can share it with anyone by sending them this link.
